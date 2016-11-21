@@ -29,6 +29,10 @@ private object AppDependencies {
   private val playReactivemongoVersion = "4.8.0"
   private val catsVersion = "0.6.0"
 
+  val jsonValidationDependencies = Seq(
+    "com.github.fge" % "json-schema-validator" % "2.2.6")
+
+
   val compile = Seq(
     "uk.gov.hmrc" %% "play-reactivemongo" % playReactivemongoVersion,
 
@@ -41,7 +45,7 @@ private object AppDependencies {
     "uk.gov.hmrc" %% "play-json-logger" % playJsonLoggerVersion,
     "uk.gov.hmrc" %% "domain" % domainVersion,
     "org.typelevel" %% "cats" % catsVersion
-  )
+  )++ jsonValidationDependencies
 
   trait TestDependencies {
     lazy val scope: String = "test"
