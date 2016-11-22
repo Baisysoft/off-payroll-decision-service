@@ -21,7 +21,7 @@ object JsonValidator{
   def validateJson(json : String) : Boolean = {
     val jsonSchemaFactory: JsonSchemaFactory = JsonSchemaFactory.byDefault()
 
-    val stream: InputStream = getClass.getResourceAsStream("/schema.json")
+    val stream: InputStream = getClass.getResourceAsStream("/off-payroll-decision.json")
     val lines: String = Source.fromInputStream(stream).mkString
     val jsonSchemaNode: JsonNode = JsonLoader.fromString(lines)
     val schema: JsonSchema = jsonSchemaFactory.getJsonSchema(jsonSchemaNode)
